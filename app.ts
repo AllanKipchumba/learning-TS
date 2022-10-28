@@ -1,14 +1,16 @@
+type combinable = number | string; //type aliased num || string union
+
 const combine = (
-  input1: number | string,
-  input2: number | string,
+  input1: combinable,
+  input2: combinable,
   resultConversion: "as-text" | "as-number" //string literal type
 ) => {
-  let result: number | string; //union > result can be type num or string
+  let result: combinable; //union > result can be type num or string
   typeof input1 === "number" &&
   typeof input2 === "number" &&
   resultConversion === "as-number"
-    ? (result = input1 + input2)
-    : (result = input1.toString() + input2.toString());
+    ? (result = input1 + input2) //returns number
+    : (result = input1.toString() + input2.toString()); //returns string
   return result;
 };
 
