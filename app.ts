@@ -1,13 +1,22 @@
-const combine = (input1: number | string, input2: number | string) => {
+const combine = (
+  input1: number | string,
+  input2: number | string,
+  resultConversion: "as-text" | "as-number"
+) => {
   let result: number | string; //union > result can be type num or string
-  typeof input1 === "number" && typeof input2 === "number"
+  typeof input1 === "number" &&
+  typeof input2 === "number" &&
+  resultConversion === "as-number"
     ? (result = input1 + input2)
     : (result = input1.toString() + input2.toString());
   return result;
 };
 
-const combineAges = combine(20, 21);
+const combineAges = combine(20, 21, "as-number");
 console.log(combineAges);
 
-const combineNames = combine("allan", "kilavuka");
+const combineAgesS = combine(20, 21, "as-text");
+console.log(combineAgesS);
+
+const combineNames = combine("allan", "kilavuka", "as-text");
 console.log(combineNames);
