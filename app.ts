@@ -1,9 +1,11 @@
-type combinable = number | string; //type aliased num || string union
+//type aliases
+type combinable = number | string; //aliased num || string union
+type conversionDescriptor = "as-text" | "as-number"; //aliased string literal
 
 const combine = (
   input1: combinable,
   input2: combinable,
-  resultConversion: "as-text" | "as-number" //string literal type
+  resultConversion: conversionDescriptor //string literal type
 ) => {
   let result: combinable; //union > result can be type num or string
   typeof input1 === "number" &&

@@ -1,10 +1,11 @@
-var combine = function (input1, input2, resultConversion) {
+var combine = function (input1, input2, resultConversion //string literal type
+) {
     var result; //union > result can be type num or string
     typeof input1 === "number" &&
         typeof input2 === "number" &&
         resultConversion === "as-number"
-        ? (result = input1 + input2)
-        : (result = input1.toString() + input2.toString());
+        ? (result = input1 + input2) //returns number
+        : (result = input1.toString() + input2.toString()); //returns string
     return result;
 };
 var combineAges = combine(20, 21, "as-number");
