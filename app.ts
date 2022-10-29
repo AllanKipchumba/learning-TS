@@ -1,20 +1,13 @@
-const add = (n1: number, n2: number) => {
-  return n1 + n2;
-};
+let userInput: unknown; //unknown is preferable to any
+let userName: string;
 
-//void function type > has no return value
-const printResult = (num: number): void => console.log(`Result is ${num}`);
+userInput = 5;
+userInput = "mark";
 
-printResult(add(5, 2));
+typeof userInput === "string" && (userName = userInput);
 
-//function types
-let combineValues: (a: number, b: number) => number;
-combineValues = add;
-
-console.log(combineValues(8, 8));
-
-//function tyes and callbacks
-const addHandle = (n1: number, n2: number, cb: (num: number) => void) => {
-  const result = n1 + n2;
-  cb(result);
-};
+//never type >> used when you are usre something is never going to occur
+// i.e a functon that never returns a value
+function generateErrorMessage(message: string, code: number): never {
+  throw { message: message, errorCode: code };
+} // this fn never returns a value
