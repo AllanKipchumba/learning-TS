@@ -11,3 +11,5 @@ typeof userInput === "string" && (userName = userInput);
 function generateErrorMessage(message: string, code: number): never {
   throw { message: message, errorCode: code };
 } // this fn never returns a value
+
+generateErrorMessage("an error occured!", 500);
