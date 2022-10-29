@@ -1,26 +1,8 @@
-//type aliases
-type combinable = number | string; //aliased num || string union
-type conversionDescriptor = "as-text" | "as-number"; //aliased string literal
-
-const combine = (
-  input1: combinable,
-  input2: combinable,
-  resultConversion: conversionDescriptor //string literal type
-) => {
-  let result: combinable; //union > result can be type num or string
-  typeof input1 === "number" &&
-  typeof input2 === "number" &&
-  resultConversion === "as-number"
-    ? (result = input1 + input2) //returns number
-    : (result = input1.toString() + input2.toString()); //returns string
-  return result;
+const add = (n1: number, n2: number) => {
+  return n1 + n2;
 };
 
-const combineAges = combine(20, 21, "as-number");
-console.log(combineAges);
+//void function type > has no return vaue
+const printResult = (num: number): void => console.log(`Result is ${num}`);
 
-const combineAgesS = combine(20, 21, "as-text");
-console.log(combineAgesS);
-
-const combineNames = combine("allan", "kilavuka", "as-text");
-console.log(combineNames);
+printResult(add(5, 2));
